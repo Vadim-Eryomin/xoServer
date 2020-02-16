@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
     static ArrayList<Game> games =  new ArrayList<>();
-    static char[] fields = new char[9];
+    static char[] fields = {'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'};
     public static void main(String[] args) throws IOException {
 	    ServerSocket serverSocket = new ServerSocket(55555);
 	    createServer(serverSocket);
@@ -60,7 +60,7 @@ public class Main {
                 int num = Integer.parseInt(data[1]);
                 Game host = findGameByHost(socket);
                 Game client = findGameByClient(socket);
-                fields[num] = host != null ? 'x' : client != null ? 'o' : ' ';
+                fields[num] = host != null ? 'x' : client != null ? 'o' : 'n';
                 String write = "";
                 for (int i = 0; i < fields.length; i++) {
                     write += fields[i];
