@@ -42,6 +42,7 @@ public class Main {
         DataInputStream dis = new DataInputStream(socket.getInputStream());
         while (true){
             String read = dis.readUTF();
+            System.out.println(read);
             String[] data = read.split(" ");
             if (data[0].equals("/cg")){
                 games.add(new Game());
